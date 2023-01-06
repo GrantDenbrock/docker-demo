@@ -1,6 +1,6 @@
 FROM python:3.10.4-slim-buster
 
-ENV INSTALL_PATH /flask_docker
+ENV INSTALL_PATH /docker-demo
 RUN mkdir -p $INSTALL_PATH
 WORKDIR $INSTALL_PATH
 
@@ -8,7 +8,7 @@ ADD Pipfile .
 RUN mkdir -p .venv
 
 ADD config ${INSTALL_PATH}/config
-ADD flask_docker ${INSTALL_PATH}/flask_docker
+ADD flask_docker ${INSTALL_PATH}/docker-demo
 
 RUN pip3 --no-cache-dir install pipenv==2022.1.8
 RUN pipenv lock -r > requirements.txt

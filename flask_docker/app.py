@@ -1,6 +1,6 @@
 from flask import Flask
 
-from flask_docker.api.hello_world import hello_world_blueprint
+from flask_docker.api.hello_world import hello_world
 
 
 def create_app():
@@ -12,6 +12,6 @@ def create_app():
     app = Flask(__name__, instance_relative_config=True)
 
     app.config.from_pyfile("settings.py", silent=True)
-    app.register_blueprint(hello_world_blueprint)
+    app.register_blueprint(hello_world)
 
     return app
